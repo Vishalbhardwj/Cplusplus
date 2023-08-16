@@ -1,0 +1,92 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+void Merge(int a[],int b[],int n,int m){
+int c[n+m];
+for(int i=0;i<n;i++){
+    c[i]=a[i];
+}
+for(int i=0;i<m;i++){
+    c[i+n]=b[i];
+}
+sort(c,c+n+m);
+
+for(int i=0;i<n+m;i++){
+    cout<<c[i]<<" ";
+}
+}
+
+void MergeSort(int a[],int b[], int n, int m){
+    int i=0,j=0;
+    while(i<n&&j<m){
+        if(a[i]<=b[j]){
+            cout<<a[i]<<" ";
+            i++;
+        }else{
+            cout<<b[j]<<" ";
+            j++;
+        }
+    }
+    while(i<n){
+        cout<<a[i]<<" ";
+        i++;
+    }
+    while(j<m){
+        cout<<b[j]<<" ";
+        j++;
+    }
+}
+
+
+int main(){
+    // Way 1: naive solution but taking auxiliary space O(n+m):
+
+    // cout<<" Both a and b Array Must be sorted "<<endl;
+    // cout<<"for first Array"<<endl;
+    // int n;
+    // cin>>n;
+   
+    // int a[n];
+    
+    // for(int i=0;i<n;i++){
+    //     cin>>a[i];
+    // }
+    // cout<<"for Second Array "<<endl;
+    // int m;
+    // cin>>m;
+    // int b[m];
+    // for(int i=0;i<m;i++){
+    //     cin>>b[i];
+    // }
+
+    
+    // Merge(a,b,n,m);
+
+    // Way 2 : auxiliary space :O(1):
+
+    cout<<" Both a and b Array Must be sorted "<<endl;
+    cout<<"for first Array"<<endl;
+    int n;
+    cin>>n;
+   
+    int a[n];
+    
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    cout<<"for Second Array "<<endl;
+    int m;
+    cin>>m;
+    int b[m];
+    for(int i=0;i<m;i++){
+        cin>>b[i];
+    }
+
+    
+    MergeSort(a,b,n,m);
+
+
+
+    return 0;
+}
