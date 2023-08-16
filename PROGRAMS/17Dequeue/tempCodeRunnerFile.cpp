@@ -1,0 +1,15 @@
+ dequeue dq(4);
+    cout<<dq.getFront()<<endl;
+    dq.insertFront(10);
+    cout<<dq.getFront()<<endl;
+    dq.insertRear(20);
+    cout<<dq.getRear()<<endl;
+    dq.insertFront(30);
+    cout<<dq.getFront()<<endl;
+    dq.insertRear(50);
+    cout<<dq.getRear()<<endl;
+    dq.deleteFront();
+    cout<<dq.getFront()<<endl;
+    dq.deleteRear();
+    cout<<dq.getRear()<<endl;
+    cout<<endl<<endl<<endl;
