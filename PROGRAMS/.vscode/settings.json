@@ -1,8 +1,0 @@
-{
-    "scm.repositories.sortOrder": "path",
-    "breadcrumbs.symbolSortOrder": "position",
-    "files.associations": {
-        "iostream": "cpp",
-        "iosfwd": "cpp"
-    }
-}
