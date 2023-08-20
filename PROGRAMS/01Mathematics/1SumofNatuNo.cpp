@@ -6,6 +6,7 @@ int SumofNNo(int n){
     for(int i=1;i<=n;i++){
         res+=i;
         }
+        
    return res;
 }
 int SumofNatN(int n){
