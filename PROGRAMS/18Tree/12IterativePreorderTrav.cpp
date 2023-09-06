@@ -30,16 +30,20 @@ void iterativePreorder(node *root){
 }
 }
 
+
 void IterativePreorder(node *root){
     if(root==NULL) return ;
     stack <node *> s;
-    s.push(root);
+    s.push(root);                        
+  
     while(s.empty()==false){
-         node *cur=s.top();
+          node * cur=s.top();
         cout<<cur->data<<" ";
         s.pop();
+
         if(cur->right!=NULL);
         s.push(cur->right);
+
         if(cur->left!=NULL);
         s.push(cur->left);
     }
@@ -61,7 +65,8 @@ int main(){
 
     // Mera khud banaya hua:
 
-    // iterativePreorder(root);
+    iterativePreorder(root);
+    cout<<endl;
 
    IterativePreorder(root);  
     return 0;
