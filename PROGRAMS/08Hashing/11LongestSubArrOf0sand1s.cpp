@@ -58,9 +58,9 @@ int main(){
             cin>>arr[i];
         }
         cout<<"Brute force Approach"<<endl;
-        cout<<LongestSubArrOf0sand1s(arr,n);
+        cout<<LongestSubArrOf0sand1s(arr,n)<<endl;
         cout<<"Optimized Approach:"<<endl;
-        cout<<LongSubArrOfOand1(arr,n);
+        cout<<LongSubArrOfOand1(arr,n)<<endl;
 
        
     }
