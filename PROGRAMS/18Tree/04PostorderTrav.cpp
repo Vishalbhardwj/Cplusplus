@@ -2,24 +2,24 @@
 using namespace std;
 
 struct node{
-    int data;
-    node *left;
-    node *right;
+    int key;
+    node *left,*right;
 
-    node(int d){
-        data=d;
+    node(int k){
+        key=k;
         left=right=NULL;
     }
-
 };
 
-void postorder(node *root){
+void postOrderTrav(node *root){
     if(root!=NULL){
-        postorder(root->left);
-        postorder(root->right);
-        cout<<root->data<<" ";
+        postOrderTrav(root->left);
+        postOrderTrav(root->right);
+        cout<<root->key<<" ";
     }
 }
+
+
 
 int main(){
     node *root=new node(10);
@@ -28,7 +28,9 @@ int main(){
     root->right->left=new node(40);
     root->right->right=new node(50);
 
-    // Postorder Traversal:
-    postorder(root);
+    postOrderTrav(root);
+    
+    
+    
     return 0;
 }

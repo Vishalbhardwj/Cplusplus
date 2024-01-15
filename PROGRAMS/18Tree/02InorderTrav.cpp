@@ -2,21 +2,20 @@
 using namespace std;
 
 struct node{
-    int data;
-    node *left;
-    node *right;
+    int key;
+    node *left,*right;
 
-    node(int d){
-        data=d;
+    node(int k){
+        key=k;
         left=right=NULL;
     }
 };
 
-void inorder(node *root){
+void InorderTrav(node *root){
     if(root!=NULL){
-        inorder(root->left);
-        cout<<root->data<<" ";
-        inorder(root->right);
+        InorderTrav(root->left);
+        cout<<root->key<<" ";
+        InorderTrav(root->right);
     }
 }
 
@@ -26,10 +25,12 @@ int main(){
     root->right=new node(30);
     root->right->left=new node(40);
     root->right->right=new node(50);
+    
 
-    // Inorder Traversal:
+    // InorderTraversal:
+    InorderTrav(root);
 
-    inorder(root);
 
+    
     return 0;
 }

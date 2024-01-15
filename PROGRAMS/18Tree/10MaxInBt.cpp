@@ -13,23 +13,18 @@ struct node{
 };
 
 
-// Naive Approach :
-// Can be done by using  both GetHeight fun and printDistanceK fun!
 
-
-
-// Efficient Approach :
-
-void levelOrderTrav(node *root){
+int getMaxInBt(node *root){
     if(root==NULL){
-        return ;
+        return INT16_MIN;
     }
     queue<node *> q;
     q.push(root);
+    int max=root->key;
     while(!q.empty()){
         node *curr=q.front();
         q.pop();
-        cout<<curr->key<<" ";
+        if(max<curr->key){max=curr->key;}
 
         if(curr->left!=NULL){
             q.push(curr->left);
@@ -38,6 +33,15 @@ void levelOrderTrav(node *root){
             q.push(curr->right);
         }
     }
+    return max;
+}
+
+
+int getMaxInBtR(node *root){
+    if(root==NULL){
+        return INT16_MIN;
+    }
+    return max(root->key,max(getMaxInBtR(root->left),getMaxInBtR(root->right)));
 }
 
 
@@ -47,13 +51,17 @@ void levelOrderTrav(node *root){
 
 
 int main(){
-    node *root=new node(100);
+    node *root=new node(199900);
     root->left=new node(230);
     root->right=new node(390);
-    root->right->left=new node(40);
-    root->right->right=new node(20);
+    root->right->left=new node(400);
+    root->right->right=new node(13000);
+   
 
-    levelOrderTrav(root);
+    cout<<"Iterative Approach:"<<endl;
+    cout<<getMaxInBt(root)<<endl;
+    cout<<"Recursive Approach:"<<endl;
+    cout<<getMaxInBtR(root)<<endl;
 
     
     

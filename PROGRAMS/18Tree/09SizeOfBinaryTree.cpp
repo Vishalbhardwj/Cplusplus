@@ -13,31 +13,39 @@ struct node{
 };
 
 
-// Naive Approach :
-// Can be done by using  both GetHeight fun and printDistanceK fun!
 
-
-
-// Efficient Approach :
-
-void levelOrderTrav(node *root){
+//  Iterative Approach For Size of Binary Tree: Here We use levelOrder with count variable.Tc:O(n),Spc:O(W).
+int SizeOfBt(node *root){
     if(root==NULL){
-        return ;
+        return 0;
     }
     queue<node *> q;
     q.push(root);
+    int count=0;
     while(!q.empty()){
+        
         node *curr=q.front();
         q.pop();
-        cout<<curr->key<<" ";
-
+        
         if(curr->left!=NULL){
             q.push(curr->left);
         }
         if(curr->right!=NULL){
             q.push(curr->right);
         }
+        count++;
     }
+    return count;
+}
+
+
+// Recurrsive Aproach Tc:O(n) ,Spc:O(H).
+int SizeOfBtRec(node *root){
+    if(root==NULL){
+        return 0;
+    }
+    return (SizeOfBtRec(root->left)+SizeOfBtRec(root->right))+1;
+    
 }
 
 
@@ -53,7 +61,10 @@ int main(){
     root->right->left=new node(40);
     root->right->right=new node(20);
 
-    levelOrderTrav(root);
+    cout<<"Iterative Approach:"<<endl;
+    cout<<SizeOfBt(root)<<endl;
+    cout<<"Recurrsive Approach:"<<endl;
+    cout<<SizeOfBtRec(root)<<endl;
 
     
     

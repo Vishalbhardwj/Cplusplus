@@ -11,13 +11,19 @@ struct node{
     }
 };
 
-void preorderTrav(node *root){
-    if(root!=NULL){
-        cout<<root->key<<" ";
-        preorderTrav(root->left);
-        preorderTrav(root->right);
+ void printKDis(node *root ,int k){
+    if(root==NULL){
+        return;
     }
-}
+    if(k==0){
+        cout<<root->key<<" ";
+    }else{
+        printKDis(root->left,k-1);
+        printKDis(root->right,k-1);
+    }
+ }
+
+
 
 int main(){
     node *root=new node(10);
@@ -26,7 +32,8 @@ int main(){
     root->right->left=new node(40);
     root->right->right=new node(50);
 
-    preorderTrav(root);
+    
+    printKDis(root,2);
     
     
     
