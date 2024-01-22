@@ -18,7 +18,7 @@ struct node{
 node *BTDLL(node *root){
     if(root==NULL){return root;}
 
-    static node *prev = NULL;
+    static node *prev = NULL;              // fetches changed value again and again.
 
     node *head=BTDLL(root->left);
 
